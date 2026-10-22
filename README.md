@@ -16,13 +16,23 @@ This is a V2 CLI plugin built on `@opencode/plugin/tui`. For OpenCode V1, use th
 
 ## Install
 
-Copy the plugin into your OpenCode config directory:
+Clone the plugin somewhere permanent:
 
 ```sh
 git clone https://github.com/zemadeiran/opencode-file-tree-v2 ~/.config/opencode/plugins/file-tree
 ```
 
-OpenCode discovers plugins under `~/.config/opencode/plugins/` automatically. Restart OpenCode, open a session, and the tree appears in the sidebar.
+Then add its path to the `plugins` array in `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "plugins": ["/Users/you/.config/opencode/plugins/file-tree"]
+}
+```
+
+Use the absolute path to your clone. Restart OpenCode, open a session, and the tree appears in the sidebar.
+
+> **Note:** `opencode plugin add github:zemadeiran/opencode-file-tree-v2` does not work yet. The TUI plugin fails to load when installed from Git ([anomalyco/opencode#33884](https://github.com/anomalyco/opencode/issues/33884)). Use the path setup above until that is fixed.
 
 Mouse support requires mouse capture in `~/.config/opencode/cli.json`:
 
